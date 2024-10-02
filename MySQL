@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS webshop;
+USE webshop;
+
+CREATE TABLE IF NOT EXISTS frukt(
+id int AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(100) not null,
+descr varchar(100)
+);
+
+
+CREATE USER IF NOT EXISTS 'David'@'localhost' 
+IDENTIFIED BY 'qwerty';
+GRANT SELECT, INSERT, UPDATE, DELETE ON webshop.* TO 'David'@'localhost';
+
+
+INSERT INTO frukt(title, descr) values ("Banan", "Gul frukt");
+INSERT INTO frukt(title, descr) values ("Apple", "Röd frukt");
+INSERT INTO frukt(title, descr) values ("Apple", "Grön frukt");
