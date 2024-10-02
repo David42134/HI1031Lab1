@@ -14,11 +14,11 @@ public class ItemDB extends bo.Item{
 
             Connection con = DBManager.getConnection();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select id, name, description from T_ITEM");
+            ResultSet rs = st.executeQuery("SELECT * FROM frukt WHERE id > 0");
             while(rs.next()){
                 int i = rs.getInt("id");
-                String name = rs.getString("name");
-                String desc = rs.getString("description");
+                String name = rs.getString("title");
+                String desc = rs.getString("descr");
                 v.addElement(new ItemDB(i,name,desc));
             }
         }catch (SQLException e) {e.printStackTrace();}
