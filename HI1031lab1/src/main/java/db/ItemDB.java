@@ -17,16 +17,17 @@ public class ItemDB extends bo.Item{
             ResultSet rs = st.executeQuery("SELECT * FROM frukt WHERE id > 0");
             while(rs.next()){
                 int i = rs.getInt("id");
+                float price = rs.getFloat("price");
                 String name = rs.getString("title");
                 String desc = rs.getString("descr");
-                v.addElement(new ItemDB(i,name,desc));
+                v.addElement(new ItemDB(i,price,name,desc));
             }
         }catch (SQLException e) {e.printStackTrace();}
 
         return v;
     }
 
-    private ItemDB(int id, String name, String descr) {
-        super(id, name, descr);
+    private ItemDB(int id, float price, String name, String descr) {
+        super(id, price, name, descr);
     }
 }
