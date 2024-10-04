@@ -27,6 +27,8 @@ public class ItemDB extends bo.Item{
         return v;
     }
 
+
+
     private ItemDB(int id, float price, String name, String descr) {
         super(id, price, name, descr);
     }
