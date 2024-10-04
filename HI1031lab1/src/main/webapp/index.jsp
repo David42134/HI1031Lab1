@@ -31,7 +31,7 @@
              <h6 class="price">Price: $<%=item.getPrice()%></h6>
              <h6 class="category">Category: <%= item.getDescription()%></h6>
              <div class="mt-3 d-flex justify-content-between">
-                <a href="#" class="btn btn-primary" >Add to Cart</a>
+                <a href="add-to-cart?id=<%=item.getId()%>" class="btn btn-primary" >Add to Cart</a>
 
           </div>
         </div>
