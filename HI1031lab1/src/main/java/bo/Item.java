@@ -10,6 +10,10 @@ public class Item {
     private float price;
     private int id;
 
+    public Item() {
+
+    }
+
     static public Collection searchItems(String group){
         return ItemDB.searchItems(group);
     }
@@ -35,5 +39,21 @@ public class Item {
 
     public String getDescr() {
         return this.descr;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 }
