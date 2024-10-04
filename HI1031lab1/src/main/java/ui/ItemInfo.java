@@ -1,11 +1,13 @@
 package ui;
 
 public class ItemInfo {
+    private int id;
     private float price;
     private String name;
     private String description;
 
-    public ItemInfo(float price, String name, String description) {
+    public ItemInfo(int id, float price, String name, String description) {
+        this.id = id;
         this.price = price;
         this.name = name;
         this.description = description;
@@ -29,5 +31,13 @@ public class ItemInfo {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
