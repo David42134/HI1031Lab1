@@ -13,6 +13,10 @@ public class ItemInfo {
         this.description = description;
     }
 
+    public ItemInfo() {
+
+    }
+
     public float getPrice() {
         return price;
     }
@@ -29,15 +33,23 @@ public class ItemInfo {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setDescr(String descr) {
+        this.description = descr;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public String getDescr() {
+        return description;
     }
 }

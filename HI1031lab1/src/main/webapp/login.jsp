@@ -5,7 +5,7 @@
 <title>E-Commerce Cart</title>
 </head>
 <body>
-	<%@include file="/includes/navbar.jsp"%>
+
 
 	<div class="container">
 		<div class="card w-50 mx-auto my-5">
@@ -13,8 +13,8 @@
 			<div class="card-body">
 				<form action="user-login" method="post">
 					<div class="form-group">
-						<label>Email address</label>
-						<input type="email" name="login-username" class="form-control" placeholder="Enter email">
+						<label>Username</label>
+						<input type="text" name="login-username" class="form-control" placeholder="Enter username">
 					</div>
 					<div class="form-group">
 						<label>Password</label>

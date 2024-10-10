@@ -1,6 +1,7 @@
 package db;
 
 import bo.Cart;
+import ui.CartInfo;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,28 +10,26 @@ import java.util.List;
 public class CartDB extends bo.Cart{
 
 
-    public CartDB(ArrayList<Cart> cart_list) {
+    public CartDB(ArrayList<CartInfo> cart_list) {
         super();
     }
 
-    public static List<Cart> getCartProducts(ArrayList<Cart> cartList) {
-        List<Cart> book = new ArrayList<>();
+    public static List<CartInfo> getCartProducts(ArrayList<CartInfo> cartList) {
+        List<CartInfo> cartInfos = new ArrayList<>();
         try {
             Connection con = DBManager.getConnection();
             Statement st = con.createStatement();
             if (cartList.size() > 0) {
-                for (Cart item : cartList) {
+                for (CartInfo item : cartList) {
                     PreparedStatement pst = con.prepareStatement("select * from frukt where id=?");
                     pst.setInt(1, item.getId());
                     ResultSet rs = pst.executeQuery();
                     while (rs.next()) {
-                        Cart row = new Cart();
-                        row.setId(rs.getInt("id"));
+                        CartInfo row = new CartInfo(rs.getInt("id"),item.getQuantity());
                         row.setName(rs.getString("title"));
                         row.setDescr(rs.getString("descr"));
                         row.setPrice(rs.getFloat("price")*item.getQuantity());
-                        row.setQuantity(item.getQuantity());
-                        book.add(row);
+                        cartInfos.add(row);
                     }
 
                 }
@@ -40,6 +39,6 @@ public class CartDB extends bo.Cart{
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
-        return book;
+        return cartInfos;
     }
 }

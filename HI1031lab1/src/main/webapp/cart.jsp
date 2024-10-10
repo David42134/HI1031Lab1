@@ -4,19 +4,16 @@
 <%@ page import="bo.Cart" %>
 <%@ page import="db.CartDB" %>
 <%@ page import="db.DBManager" %>
+<%@ page import="ui.CartInfo" %>
+<%@ page import="bo.CartHandler" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 
 <%
-    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-    List<Cart> cartProduct = null;
-    if (cart_list != null) {
-        CartDB c = new CartDB(cart_list);
-        cartProduct = c.getCartProducts(cart_list);
-        /*double total = c.getTotalCartPrice(cart_list);
-        request.setAttribute("total", total);*/
-        request.setAttribute("cart_list", cart_list);
-    }
+    CartHandler cartHandler = new CartHandler();
+    ArrayList<CartInfo> cart_list = (ArrayList<CartInfo>) session.getAttribute("cart-list");
+    List<CartInfo> cartProduct = cartHandler.getCartProducts(cart_list);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -55,7 +52,7 @@
         <tbody>
         <%
             if(cart_list != null){
-                for (Cart c: cartProduct){%>
+                for (CartInfo c: cartProduct){%>
         <tr>
             <td> <%=c.getName()%> </td>
             <td> <%=c.getDescr()%> </td>
